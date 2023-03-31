@@ -201,6 +201,46 @@
         background-color: white;
         font-family: "Open Sans", sans-serif;
       }
+      .container {
+        height: 100px;
+        position: relative;
+        /* border: 3px solid green; */
+      }
+
+      .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .btn {
+        border: 1px solid #9dd1ff;
+        border-radius: 10px;
+        color: #348efe;
+        display: inline-block;
+        padding: 15px 35px;
+        text-decoration: none;
+        margin: 25px 0;
+        transition: background-color 200ms ease-in-out;
+      }
+
+      .btn:hover,
+      .btn:focus {
+        background-color: #e1f1ff;
+      }
+
+      .btn {
+        background-color: #4e6e81;
+        color: white;
+      }
+
+      .btn:hover,
+      .btn:focus {
+        background-color: #2c3135;
+        color: white;
+      }
     </style>
   </head>
   <body>
@@ -212,7 +252,7 @@
               <img src="/img/logo.png" alt="" />
             </a>
           </div>
-          <div class="nav-right">
+          <!-- <div class="nav-right">
             <div class="nav-links">
               <a href="#" class="active">Home</a>
               <a href="#">About</a>
@@ -226,7 +266,7 @@
                 <input type="text" placeholder="Search" />
               </div>
             </div>
-          </div>
+          </div> -->
         </nav>
         <section class="hero">
           <div class="cta container">
@@ -275,7 +315,15 @@
                   </select>
                 </div>
               </div>
-              <button class="btn btn-primary">Explore Space</button>
+              <!-- <div class="col text-center">
+                <button class="btn btn-default">Centered button</button>
+              </div> -->
+              <!-- <button class="btn btn-primary">Explore Space</button> -->
+              <div class="container">
+                <div class="center">
+                  <button class="btn">Generate result</button>
+                </div>
+              </div>
             </div>
             <div class="right-section">
               <img src="/img/astronaut.png" alt="astronaut" />
