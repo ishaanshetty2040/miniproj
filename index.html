@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Multiple Dropdowns</title>
+    <style>
+      /* Center the dropdown boxes horizontally */
+      * {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      header {
+        background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 0.2)
+          ),
+          url("/img/1596.jpg");
+        min-height: 100vh;
+        background-size: cover;
+      }
+
+      header nav {
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        align-items: center;
+        border-bottom: 1px solid var(--gray);
+      }
+
+      header nav .nav-right {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 0px 0px 100px;
+        color: white;
+      }
+
+      header nav .nav-right a {
+        text-decoration: none;
+        color: var(--pure);
+        margin-right: 30px;
+        position: relative;
+      }
+
+      header nav .nav-right a:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -30px;
+        width: 0;
+        height: 2px;
+        background: var(--pure);
+        transition: width 0.3s ease-in-out;
+      }
+
+      header nav .nav-right a:hover:after {
+        width: 70%;
+      }
+
+      header nav .nav-right a.active:after {
+        width: 70%;
+      }
+
+      header nav .nav-right .search > div {
+        background: var(--dark);
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+        border-radius: 50px;
+      }
+
+      header nav .nav-right .search > div input {
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        color: #fff;
+      }
+
+      header nav .nav-right .search > div img {
+        padding-right: 16px;
+      }
+
+      .social div {
+        border: 2px solid var(--pure);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+        opacity: 0;
+      }
+
+      @keyframes moveIn {
+        from {
+          transform: translateX(-100px);
+        }
+        to {
+          transform: translateX(0px);
+          opacity: 1;
+        }
+      }
+
+      .social svg path {
+        fill: var(--pure);
+      }
+
+      .social div:hover svg path {
+        fill: var(--dark);
+        transition: all 0.5s ease-in-out;
+      }
+
+      .social div:hover {
+        background: var(--pure);
+      }
+
+      .hero {
+        position: relative;
+      }
+      .social {
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-right: 1px solid var(--gray);
+        width: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        min-height: 90vh;
+      }
+
+      .hero .cta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: calc(100vh - 80px);
+      }
+
+      .hero .cta h1 {
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 1.7;
+        margin-bottom: 30px;
+      }
+
+      .hero .cta > div {
+        flex: 1;
+      }
+
+      .hero .cta .left-section {
+        padding: 0 60px 0 30px;
+      }
+
+      .hero .cta .right-section img {
+        height: 70vh;
+        transform: rotate(20deg);
+        animation: moveInSpace 12s ease-in-out infinite alternate;
+      }
+
+      @keyframes moveInSpace {
+        50% {
+          transform: translateY(100px) rotate(-30deg) scale(0.8);
+        }
+      }
+      .dropdowns {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+      }
+
+      /* Style the dropdown boxes */
+      select {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        margin: 0 10px;
+        background-color: #22438c;
+        color: white;
+        border: none;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Style the heading */
+      h1 {
+        text-align: center;
+        color: white;
+        font-size: 36px;
+        margin-top: 50px;
+        text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Create a dark modern background */
+      body {
+        background-color: white;
+        font-family: "Open Sans", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <header>
+        <nav>
+          <div class="brand">
+            <a href="#">
+              <img src="/img/logo.png" alt="" />
+            </a>
+          </div>
+          <div class="nav-right">
+            <div class="nav-links">
+              <a href="#" class="active">Home</a>
+              <a href="#">About</a>
+              <a href="#">Updates</a>
+              <a href="#">Career</a>
+              <a href="#">Shop</a>
+            </div>
+            <div class="search">
+              <div>
+                <img src="./img/search.png" alt="" />
+                <input type="text" placeholder="Search" />
+              </div>
+            </div>
+          </div>
+        </nav>
+        <section class="hero">
+          <div class="cta container">
+            <div class="left-section">
+              <div class="descrip">
+                <h1 style="color: white">
+                  Get all your spacecraft information with our website!
+                </h1>
+              </div>
+              <div>
+                <h1>Enter your query</h1>
+                <div class="dropdowns">
+                  <select>
+                    <option value="option1">What</option>
+                    <option value="option2">When</option>
+                    <option value="option3">Which</option>
+                    <option value="option4">Which</option>
+                    <option value="option5">Which</option>
+                  </select>
+                  <select>
+                    <option value="option1">is</option>
+                    <option value="option2">was</option>
+                  </select>
+                  <select>
+                    <option value="option1">Flight Number</option>
+                    <option value="option2">Launch Date</option>
+                    <option value="option3">Launch Time</option>
+                    <option value="option3">Launch Site</option>
+                    <option value="option3">Vehicle Type</option>
+                    <option value="option3">Payload Name</option>
+                    <option value="option3">Payload Type</option>
+                    <option value="option3">Payload Mass(kg)</option>
+                    <option value="option3">Payload Orbit</option>
+                    <option value="option3">Customer Name</option>
+                  </select>
+                  <select>
+                    <option value="option1">of</option>
+                  </select>
+                  <select>
+                    <option value="option1">F1-1</option>
+                    <option value="option1">F1-2</option>
+                    <option value="option1">F1-3</option>
+                    <option value="option1">F1-3</option>
+                    <option value="option1">Falcon 1</option>
+                    <option value="option2">was</option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-primary">Explore Space</button>
+            </div>
+            <div class="right-section">
+              <img src="/img/astronaut.png" alt="astronaut" />
+            </div>
+          </div>
+        </section>
+      </header>
+    </div>
+  </body>
+</html>
